@@ -12,7 +12,7 @@ export default function ProductCard({ product, onAdd }: ProductCardProps) {
   return (
     <div className="y2k-card">
       <div 
-        className="y2k-card-image bg-gradient-to-br from-y2k-green to-y2k-blue"
+        className="y2k-card-image bg-gradient-to-br from-y2k-green to-y2k-blue dark:from-gray-700 dark:to-gray-600"
         style={{
           backgroundImage: `linear-gradient(135deg, #5F7F61 0%, #A8C5CD 100%)`
         }}
@@ -28,11 +28,11 @@ export default function ProductCard({ product, onAdd }: ProductCardProps) {
       
       <div className="space-y-2">
         <div className="flex items-start justify-between">
-          <h3 className="y2k-mono text-lg font-bold">{product.name}</h3>
-          <span className="y2k-badge">${product.price}</span>
+          <h3 className="y2k-mono text-lg font-bold dark:text-y2k-cream">{product.name}</h3>
+          <span className="y2k-badge">R${product.price.toFixed(2)}</span>
         </div>
         
-        <p className="text-xs opacity-70 leading-relaxed">{product.description}</p>
+        <p className="text-xs opacity-70 leading-relaxed dark:text-gray-400">{product.description}</p>
         
         {onAdd && (
           <button
@@ -40,7 +40,7 @@ export default function ProductCard({ product, onAdd }: ProductCardProps) {
             className="y2k-btn y2k-btn-primary w-full flex items-center justify-center gap-2"
           >
             <Plus size={20} />
-            ADD
+            ADICIONAR
           </button>
         )}
       </div>

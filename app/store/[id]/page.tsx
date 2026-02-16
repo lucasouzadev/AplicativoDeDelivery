@@ -1,33 +1,32 @@
-'use client';
-
-import { useState } from 'react';
-import { useParams } from 'next/navigation';
 import Header from '@/components/Header';
 import ProductCard from '@/components/ProductCard';
+import { FavoriteButton } from '@/components/FavoriteButton';
 import { stores, products, Product } from '@/data/mockData';
-import { Star, Clock, Heart, Info } from 'lucide-react';
+import { Star, Clock, Info } from 'lucide-react';
 
-// Required for static export with dynamic routes
+// Generate static params for all store IDs
 export function generateStaticParams() {
   return stores.map((store) => ({
     id: store.id,
   }));
 }
 
-export default function StorePage() {
-  const params = useParams();
-  const storeId = params.id as string;
+export default function StorePage({ params }: { params: { id: string } }) {
+  const storeId = params.id;
   const store = stores.find(s => s.id === storeId);
   const storeProducts = products.filter(p => p.storeId === storeId);
-  const [isFavorite, setIsFavorite] = useState(false);
 
   if (!store) {
-    return <div>Store not found</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="y2k-title dark:text-y2k-cream">LOJA NÃO ENCONTRADA</div>
+      </div>
+    );
   }
 
   const handleAddToCart = (product: Product) => {
     // In a real app, this would update cart state
-    alert(`Added ${product.name} to cart!`);
+    alert(`${product.name} adicionado ao carrinho!`);
   };
 
   return (
@@ -69,36 +68,28 @@ export default function StorePage() {
                     <span>{store.deliveryTime}</span>
                   </div>
                   
-                  <div className="y2k-badge">FREE DELIVERY</div>
+                  <div className="y2k-badge">ENTREGA GRÁTIS</div>
                 </div>
               </div>
               
-              <button
-                onClick={() => setIsFavorite(!isFavorite)}
-                className="y2k-btn y2k-btn-blue p-3"
-              >
-                <Heart 
-                  size={24} 
-                  fill={isFavorite ? 'currentColor' : 'none'}
-                />
-              </button>
+              <FavoriteButton storeName={store.name} />
             </div>
           </div>
         </section>
 
         {/* Info Banner */}
         <section className="p-4 animate-slide-up" style={{ animationDelay: '0.1s' }}>
-          <div className="bg-y2k-blue border-3 border-y2k-black p-4 flex items-center gap-3">
+          <div className="bg-y2k-blue dark:bg-gray-700 border-3 border-y2k-black dark:border-gray-600 p-4 flex items-center gap-3">
             <Info size={24} strokeWidth={3} />
-            <p className="y2k-mono text-sm">
-              <strong>STORE INFO:</strong> Open 11AM-10PM • Min. order $10
+            <p className="y2k-mono text-sm dark:text-y2k-cream">
+              <strong>INFO:</strong> Aberto 11h-22h • Pedido mín. R$10
             </p>
           </div>
         </section>
 
         {/* Menu */}
         <section className="p-4 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-          <h2 className="y2k-subtitle mb-4">MENU</h2>
+          <h2 className="y2k-subtitle mb-4 dark:text-y2k-cream">CARDÁPIO</h2>
           
           <div className="y2k-grid">
             {storeProducts.map((product, index) => (
@@ -118,11 +109,11 @@ export default function StorePage() {
 
         {/* Popular Items Section */}
         <section className="p-4 animate-slide-up" style={{ animationDelay: '0.4s' }}>
-          <div className="bg-y2k-green text-white p-6 border-4 border-y2k-black">
+          <div className="bg-y2k-green dark:bg-gray-700 text-white p-6 border-4 border-y2k-black dark:border-gray-600">
             <span className="y2k-badge bg-white text-y2k-black mb-2">POPULAR</span>
-            <h3 className="y2k-subtitle mt-2">MOST ORDERED</h3>
+            <h3 className="y2k-subtitle mt-2">MAIS PEDIDOS</h3>
             <p className="y2k-mono text-sm mt-2 opacity-90">
-              {storeProducts[0]?.name} • Ordered 247 times this week
+              {storeProducts[0]?.name} • Pedido 247 vezes esta semana
             </p>
           </div>
         </section>
