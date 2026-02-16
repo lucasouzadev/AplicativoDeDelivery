@@ -1,7 +1,7 @@
 import Header from '@/components/Header';
 import ProductCard from '@/components/ProductCard';
 import { FavoriteButton } from '@/components/FavoriteButton';
-import { stores, products, Product } from '@/data/mockData';
+import { stores, products } from '@/data/mockData';
 import { Star, Clock, Info } from 'lucide-react';
 
 // Generate static params for all store IDs
@@ -23,11 +23,6 @@ export default function StorePage({ params }: { params: { id: string } }) {
       </div>
     );
   }
-
-  const handleAddToCart = (product: Product) => {
-    // In a real app, this would update cart state
-    alert(`${product.name} adicionado ao carrinho!`);
-  };
 
   return (
     <>
@@ -98,10 +93,7 @@ export default function StorePage({ params }: { params: { id: string } }) {
                 style={{ animationDelay: `${0.3 + index * 0.1}s` }}
                 className="animate-slide-up"
               >
-                <ProductCard 
-                  product={product} 
-                  onAdd={handleAddToCart}
-                />
+                <ProductCard product={product} />
               </div>
             ))}
           </div>

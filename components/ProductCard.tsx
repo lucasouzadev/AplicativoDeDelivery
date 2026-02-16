@@ -5,10 +5,14 @@ import { Plus } from 'lucide-react';
 
 interface ProductCardProps {
   product: Product;
-  onAdd?: (product: Product) => void;
 }
 
-export default function ProductCard({ product, onAdd }: ProductCardProps) {
+export default function ProductCard({ product }: ProductCardProps) {
+  const handleAddToCart = () => {
+    // In a real app, this would update cart state/context
+    alert(`${product.name} adicionado ao carrinho!`);
+  };
+
   return (
     <div className="y2k-card">
       <div 
@@ -34,16 +38,15 @@ export default function ProductCard({ product, onAdd }: ProductCardProps) {
         
         <p className="text-xs opacity-70 leading-relaxed dark:text-gray-400">{product.description}</p>
         
-        {onAdd && (
-          <button
-            onClick={() => onAdd(product)}
-            className="y2k-btn y2k-btn-primary w-full flex items-center justify-center gap-2"
-          >
-            <Plus size={20} />
-            ADICIONAR
-          </button>
-        )}
+        <button
+          onClick={handleAddToCart}
+          className="y2k-btn y2k-btn-primary w-full flex items-center justify-center gap-2"
+        >
+          <Plus size={20} />
+          ADICIONAR
+        </button>
       </div>
     </div>
   );
 }
+
