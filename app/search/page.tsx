@@ -19,7 +19,7 @@ export default function SearchPage() {
 
   return (
     <>
-      <Header title="SEARCH" showBack />
+      <Header title="BUSCAR" showBack />
       
       <main className="max-w-7xl mx-auto p-4 space-y-6">
         {/* Search Input */}
@@ -27,13 +27,13 @@ export default function SearchPage() {
           <div className="relative">
             <input
               type="text"
-              placeholder="SEARCH RESTAURANTS..."
+              placeholder="BUSCAR RESTAURANTES..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="y2k-input pl-12 pr-12"
             />
             <SearchIcon 
-              className="absolute left-4 top-1/2 -translate-y-1/2" 
+              className="absolute left-4 top-1/2 -translate-y-1/2 dark:text-gray-400" 
               size={20} 
               strokeWidth={3}
             />
@@ -50,14 +50,14 @@ export default function SearchPage() {
 
         {/* Category Filters */}
         <section className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
-          <h2 className="y2k-subtitle mb-4">FILTER BY CATEGORY</h2>
+          <h2 className="y2k-subtitle mb-4 dark:text-y2k-cream">FILTRAR POR CATEGORIA</h2>
           
           <div className="flex gap-2 overflow-x-auto pb-2">
             <button
               onClick={() => setSelectedCategory('all')}
               className={`y2k-btn whitespace-nowrap ${selectedCategory === 'all' ? 'y2k-btn-primary' : ''}`}
             >
-              ALL
+              TODOS
             </button>
             
             {categories.map((category) => (
@@ -75,20 +75,20 @@ export default function SearchPage() {
         {/* Results */}
         <section className="animate-slide-up" style={{ animationDelay: '0.2s' }}>
           <div className="flex items-center justify-between mb-4">
-            <h2 className="y2k-subtitle">
-              {searchQuery ? 'RESULTS' : 'ALL RESTAURANTS'}
+            <h2 className="y2k-subtitle dark:text-y2k-cream">
+              {searchQuery ? 'RESULTADOS' : 'TODOS OS RESTAURANTES'}
             </h2>
-            <div className="y2k-mono text-sm">
-              {filteredStores.length} FOUND
+            <div className="y2k-mono text-sm dark:text-y2k-cream">
+              {filteredStores.length} ENCONTRADOS
             </div>
           </div>
           
           {filteredStores.length === 0 ? (
             <div className="text-center py-20">
               <SearchIcon size={80} className="mx-auto mb-6 opacity-20" strokeWidth={2} />
-              <h3 className="y2k-subtitle mb-4">NO RESULTS</h3>
-              <p className="y2k-mono text-sm opacity-70">
-                TRY A DIFFERENT SEARCH TERM
+              <h3 className="y2k-subtitle mb-4 dark:text-y2k-cream">SEM RESULTADOS</h3>
+              <p className="y2k-mono text-sm opacity-70 dark:text-gray-400">
+                TENTE OUTRO TERMO DE BUSCA
               </p>
             </div>
           ) : (
@@ -109,10 +109,10 @@ export default function SearchPage() {
         {/* Popular Searches */}
         {!searchQuery && (
           <section className="animate-slide-up" style={{ animationDelay: '0.4s' }}>
-            <h2 className="y2k-subtitle mb-4">POPULAR SEARCHES</h2>
+            <h2 className="y2k-subtitle mb-4 dark:text-y2k-cream">BUSCAS POPULARES</h2>
             
             <div className="flex flex-wrap gap-2">
-              {['BURGER', 'PIZZA', 'SUSHI', 'DESSERT', 'VEGAN', 'FAST FOOD'].map((tag) => (
+              {['HAMBÚRGUER', 'PIZZA', 'SUSHI', 'SOBREMESA', 'VEGANO', 'FAST FOOD'].map((tag) => (
                 <button
                   key={tag}
                   onClick={() => setSearchQuery(tag)}

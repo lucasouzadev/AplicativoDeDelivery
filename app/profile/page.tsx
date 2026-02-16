@@ -35,7 +35,7 @@ export default function ProfilePage() {
 
   return (
     <>
-      <Header title="PROFILE" showMenu />
+      <Header title="PERFIL" />
       
       <main className="max-w-3xl mx-auto p-4 space-y-6">
         {/* Profile Header */}

@@ -36,7 +36,7 @@ export default function HistoryPage() {
 
   return (
     <>
-      <Header title="ORDER HISTORY" showMenu />
+      <Header title="HISTÓRICO" />
       
       <main className="max-w-3xl mx-auto p-4 space-y-6">
         {/* Stats Overview */}
