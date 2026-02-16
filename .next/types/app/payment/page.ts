@@ -1,4 +1,4 @@
-// File: C:\Users\REDcr\Desktop\y2k-delivery\app\payment\page.tsx
+// File: C:\Users\REDcr\Desktop\AplicativoDeDelivery\app\payment\page.tsx
 import * as entry from '../../../../app/payment/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

@@ -1,4 +1,4 @@
-// File: C:\Users\REDcr\Desktop\y2k-delivery\app\cart\page.tsx
+// File: C:\Users\REDcr\Desktop\AplicativoDeDelivery\app\cart\page.tsx
 import * as entry from '../../../../app/cart/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
