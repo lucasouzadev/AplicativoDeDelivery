@@ -1,6 +1,7 @@
 'use client';
 
 import './globals.css';
+import { useEffect } from 'react';
 import BottomNav from '@/components/BottomNav';
 import SideMenu from '@/components/SideMenu';
 import { ThemeProvider } from '@/components/ThemeProvider';
@@ -8,6 +9,11 @@ import { MenuProvider, useMenu } from '@/components/MenuContext';
 
 function LayoutContent({ children }: { children: React.ReactNode }) {
   const { isMenuOpen, closeMenu } = useMenu();
+
+  // Set document title
+  useEffect(() => {
+    document.title = 'Y2K Delivery - App de Delivery Retrô';
+  }, []);
 
   return (
     <>
@@ -27,6 +33,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="App de delivery com design Y2K/Anos 2000" />
+      </head>
       <body>
         <ThemeProvider>
           <MenuProvider>

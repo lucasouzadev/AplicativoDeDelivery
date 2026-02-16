@@ -7,6 +7,13 @@ import ProductCard from '@/components/ProductCard';
 import { stores, products, Product } from '@/data/mockData';
 import { Star, Clock, Heart, Info } from 'lucide-react';
 
+// Required for static export with dynamic routes
+export function generateStaticParams() {
+  return stores.map((store) => ({
+    id: store.id,
+  }));
+}
+
 export default function StorePage() {
   const params = useParams();
   const storeId = params.id as string;
