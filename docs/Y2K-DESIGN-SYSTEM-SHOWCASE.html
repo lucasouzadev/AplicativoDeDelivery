@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Y2K DELIVERY - Design System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --y2k-cream: #E8E4DB;
+            --y2k-black: #000000;
+            --y2k-blue: #A8C5CD;
+            --y2k-green: #5F7F61;
+        }
+
+        body {
+            background-color: var(--y2k-cream);
+            color: var(--y2k-black);
+            font-family: 'Space Mono', monospace;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+
+        .y2k-title {
+            font-family: 'Bebas Neue', Impact, sans-serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            line-height: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .y2k-subtitle {
+            font-family: 'Bebas Neue', Impact, sans-serif;
+            font-size: clamp(1.5rem, 4vw, 3rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            color: var(--y2k-green);
+        }
+
+        .section {
+            margin-bottom: 60px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 4px solid var(--y2k-black);
+            padding-bottom: 10px;
+        }
+
+        /* Color Palette */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .color-box {
+            height: 150px;
+            border: 4px solid var(--y2k-black);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 4px 4px 0px var(--y2k-black);
+        }
+
+        .color-name {
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        /* Typography */
+        .type-sample {
+            background: white;
+            border: 4px solid var(--y2k-black);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 4px 4px 0px var(--y2k-black);
+        }
+
+        /* Buttons */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .y2k-btn {
+            font-family: 'Bebas Neue', Impact, sans-serif;
+            font-size: 1.25rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 12px 24px;
+            border: 3px solid var(--y2k-black);
+            background: var(--y2k-cream);
+            color: var(--y2k-black);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 3px 3px 0px var(--y2k-black);
+        }
+
+        .y2k-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px var(--y2k-black);
+        }
+
+        .y2k-btn-primary {
+            background: var(--y2k-black);
+            color: var(--y2k-cream);
+        }
+
+        .y2k-btn-blue {
+            background: var(--y2k-blue);
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .y2k-card {
+            background: white;
+            border: 4px solid var(--y2k-black);
+            border-radius: 4px;
+            padding: 15px;
+            box-shadow: 4px 4px 0px var(--y2k-black);
+            transition: transform 0.2s ease;
+        }
+
+        .y2k-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px var(--y2k-black);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(135deg, var(--y2k-blue) 0%, var(--y2k-green) 100%);
+            border: 2px solid var(--y2k-black);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .y2k-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--y2k-black);
+            color: var(--y2k-cream);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 2px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .demo-app {
+            background: white;
+            border: 4px solid var(--y2k-black);
+            box-shadow: 8px 8px 0px var(--y2k-black);
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+            border-top: 4px solid var(--y2k-black);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1 class="y2k-title">Y2K</h1>
+            <h2 class="y2k-subtitle">DELIVERY DESIGN SYSTEM</h2>
+            <p style="margin-top: 20px; font-weight: 700;">
+                AESTHETIC RETRO • ANOS 2000 • HIGH CONTRAST
+            </p>
+        </div>
+
+        <!-- Color Palette -->
+        <section class="section">
+            <h2 class="section-title">COLOR PALETTE</h2>
+            <div class="color-grid">
+                <div class="color-box" style="background: var(--y2k-cream);">
+                    <div class="color-name">CREAM</div>
+                    <small>#E8E4DB</small>
+                </div>
+                <div class="color-box" style="background: var(--y2k-black); color: white;">
+                    <div class="color-name">BLACK</div>
+                    <small>#000000</small>
+                </div>
+                <div class="color-box" style="background: var(--y2k-blue);">
+                    <div class="color-name">BLUE</div>
+                    <small>#A8C5CD</small>
+                </div>
+                <div class="color-box" style="background: var(--y2k-green); color: white;">
+                    <div class="color-name">GREEN</div>
+                    <small>#5F7F61</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <section class="section">
+            <h2 class="section-title">TYPOGRAPHY</h2>
+            
+            <div class="type-sample">
+                <h1 class="y2k-title" style="font-size: 4rem;">MAIN TITLE</h1>
+                <p style="margin-top: 10px; opacity: 0.7;">Bebas Neue • Ultra Bold • Uppercase</p>
+            </div>
+
+            <div class="type-sample">
+                <h2 class="y2k-subtitle" style="font-size: 2rem;">SUBTITLE TEXT</h2>
+                <p style="margin-top: 10px; opacity: 0.7;">Bebas Neue • Bold • Uppercase</p>
+            </div>
+
+            <div class="type-sample">
+                <p style="font-family: 'Space Mono', monospace; font-weight: 700;">
+                    MONOSPACE BODY TEXT - SPACE MONO
+                </p>
+                <p style="margin-top: 10px; opacity: 0.7;">Space Mono • Regular & Bold • Technical feel</p>
+            </div>
+        </section>
+
+        <!-- Buttons -->
+        <section class="section">
+            <h2 class="section-title">BUTTONS</h2>
+            <div class="button-grid">
+                <button class="y2k-btn">DEFAULT BUTTON</button>
+                <button class="y2k-btn y2k-btn-primary">PRIMARY BUTTON</button>
+                <button class="y2k-btn y2k-btn-blue">ACCENT BUTTON</button>
+            </div>
+        </section>
+
+        <!-- Cards -->
+        <section class="section">
+            <h2 class="section-title">CARDS (POLAROID STYLE)</h2>
+            <div class="card-grid">
+                <div class="y2k-card">
+                    <div class="card-image">🍔</div>
+                    <h3 style="font-family: 'Bebas Neue'; font-size: 1.5rem;">RETRO BURGER</h3>
+                    <p style="font-size: 0.9rem; margin: 10px 0; opacity: 0.7;">
+                        Classic burgers with Y2K vibes
+                    </p>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <span class="y2k-badge">4.8 ⭐</span>
+                        <span style="font-size: 0.8rem;">25-35 min</span>
+                    </div>
+                </div>
+
+                <div class="y2k-card">
+                    <div class="card-image">🍕</div>
+                    <h3 style="font-family: 'Bebas Neue'; font-size: 1.5rem;">PIXEL PIZZA</h3>
+                    <p style="font-size: 0.9rem; margin: 10px 0; opacity: 0.7;">
+                        Digital age pizzas
+                    </p>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <span class="y2k-badge">4.9 ⭐</span>
+                        <span style="font-size: 0.8rem;">30-40 min</span>
+                    </div>
+                </div>
+
+                <div class="y2k-card">
+                    <div class="card-image">🍣</div>
+                    <h3 style="font-family: 'Bebas Neue'; font-size: 1.5rem;">CYBER SUSHI</h3>
+                    <p style="font-size: 0.9rem; margin: 10px 0; opacity: 0.7;">
+                        Future of Japanese cuisine
+                    </p>
+                    <div style="display: flex; gap: 10px; align-items: center;">
+                        <span class="y2k-badge">4.7 ⭐</span>
+                        <span style="font-size: 0.8rem;">20-30 min</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Components Demo -->
+        <section class="section">
+            <h2 class="section-title">COMPONENTS SHOWCASE</h2>
+            <div class="demo-app">
+                <h3 style="font-family: 'Bebas Neue'; font-size: 2rem; margin-bottom: 20px;">
+                    DESIGN ELEMENTS
+                </h3>
+                
+                <div style="margin-bottom: 20px;">
+                    <span class="y2k-badge">NEW</span>
+                    <span class="y2k-badge" style="background: var(--y2k-blue); color: var(--y2k-black);">POPULAR</span>
+                    <span class="y2k-badge" style="background: var(--y2k-green);">FREE DELIVERY</span>
+                </div>
+
+                <p style="font-weight: 700; margin-bottom: 15px;">
+                    🎯 CARACTERÍSTICAS PRINCIPAIS:
+                </p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>✅ Bordas grossas pretas (3-4px)</li>
+                    <li>✅ Sombras offset (box-shadow)</li>
+                    <li>✅ Tipografia condensada e bold</li>
+                    <li>✅ Alto contraste visual</li>
+                    <li>✅ Animações suaves</li>
+                    <li>✅ Grid layouts responsivos</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="footer">
+            <h3 class="y2k-subtitle">PROJETO COMPLETO</h3>
+            <p style="margin-top: 10px; font-weight: 700;">
+                Next.js 14 • TypeScript • Tailwind CSS<br>
+                9 Páginas Completas • Dados Mockados • 100% Funcional
+            </p>
+            <p style="margin-top: 20px; opacity: 0.7; font-size: 0.9rem;">
+                DESENVOLVIDO COM 💚 PARA FULL STACK JAVA @ EBAC
+            </p>
+        </div>
+    </div>
+</body>
+</html>
